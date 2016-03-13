@@ -58,7 +58,6 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
-
 /*
 The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
@@ -68,6 +67,27 @@ $(document).ready(function() {
     $('#name').html(iName);  
   });
 });
+
+$("#main").append(internationalizeButton);
+
+function inName(firstName, lastName) {
+  var fn = [];
+  fn = firstName.split("");
+
+  var ln = [];
+  ln = lastName.split("");
+
+  var fl = fn.splice(0,1);
+  fl.toUpperCase();
+  fn.unshift(fl);
+
+  var ll = ln.toUpperCase;
+
+  capitalName = (fn + " " + ll);
+
+  return capitalName;
+}
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -85,7 +105,10 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x,y);
 });
 
 
